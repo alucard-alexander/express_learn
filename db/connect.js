@@ -5,7 +5,8 @@ const connectDB = async () => {
 		maxPoolSize: 2,
 		authSource: "admin",
 		user: process.env.DB_USERNAME,
-		pass: process.env.DB_PASSWORD
+		pass: process.env.DB_PASSWORD,
+		useNewUrlParser: true
 	}
 	, console.log('Successfully connected'))
 }
