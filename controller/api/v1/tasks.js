@@ -4,7 +4,7 @@ const getTasks = async (req, res) => {
 	// res.status(200).send('Working')
 	try {
 		const tasks = await taskModel.find()
-		res.status(200).send(tasks)
+		res.status(200).send(`sdfsdf`)
 	} catch (error) {
 		console.log(error);
 	}
