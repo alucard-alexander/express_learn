@@ -4,7 +4,7 @@ const getTasks = async (req, res) => {
 	// res.status(200).send('Working')
 	try {
 		const tasks = await taskModel.find()
-		res.status(200).send(`sdfsdf`)
+		res.status(200).send(tasks)
 	} catch (error) {
 		console.log(error);
 	}
@@ -20,4 +20,19 @@ const createTask = async (req, res) => {
 	}
 }
 
-module.exports = { getTasks, createTask }
+const getTask = async (req, res) => {
+	try {
+		const task = await taskModel.findById(req.params.id)
+		if (!task) {
+			return res.status(404).send('Resource not found')
+		}
+		// console.log(`query  ====>  `, req.query);
+		console.log('result =======>', task);
+		res.status(200).send(task)
+		// const task = await taskModel.find(req.body)
+	} catch (error) {
+		res.status(500).send(error.message)
+	}
+}
+
+module.exports = { getTasks, createTask, getTask }
