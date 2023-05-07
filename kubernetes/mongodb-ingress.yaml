@@ -4,6 +4,7 @@ metadata:
   name: mongo-express-dashboard
 spec:
   rules:
+    - host: dilip.test
     - http:
         paths:
           - path: /
